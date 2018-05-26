@@ -2,6 +2,8 @@ import ReleaseTransformations._
 
 name := "svalidator-play"
 
+description := "A small plugin for integration of the SValidator validation library with the Play! web framework"
+
 organization := "com.github.novamage"
 
 version := "0.0.2"
