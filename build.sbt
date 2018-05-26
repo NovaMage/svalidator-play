@@ -4,7 +4,7 @@ name := "svalidator-play"
 
 organization := "com.github.novamage"
 
-version := "0.0.1"
+version := "0.0.2"
 
 scalaVersion := "2.12.6"
 
@@ -12,7 +12,7 @@ val playVersion = "2.6.13"
 
 libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play" % playVersion % Provided,
-  "com.github.novamage" %% "svalidator" % "0.9.8"
+  "com.github.novamage" %% "svalidator" % "0.9.9"
 )
 
 scalacOptions ++= Seq(
