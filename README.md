@@ -4,6 +4,8 @@ svalidator-play
 An integration library for the [SValidator](https://github.com/NovaMage/SValidator) validation library with the 
 [Play! framework](https://www.playframework.com/)
 
+You may see this library in action in the [svalidator-play-sample application](https://github.com/NovaMage/svalidator-play-sample)
+
 Installation
 ===========
 
