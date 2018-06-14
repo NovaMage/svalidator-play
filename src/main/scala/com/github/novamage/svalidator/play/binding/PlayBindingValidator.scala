@@ -8,13 +8,21 @@ import scala.reflect.runtime.{universe => ru}
 abstract class PlayBindingValidator[A: ru.TypeTag] extends BindingValidator[A] {
 
   def bindFromRequest(implicit request: Request[_]): BindingAndValidationSummary[A] = {
-    val valuesMap = PlayRequestValuesMapExtractor.extractValuesMapFromRequest(request)
-    super.bindAndValidate(valuesMap)
+    extractFromRequest(request, DefaultPlayRequestValuesMapExtractor)
   }
 
 
   def bindLocalized(implicit messagesRequest: MessagesRequest[_]): BindingAndValidationSummary[A] = {
-    val valuesMap = PlayRequestValuesMapExtractor.extractValuesMapFromRequest(messagesRequest)
+    extractLocalized(messagesRequest, DefaultPlayRequestValuesMapExtractor)
+  }
+
+  def extractFromRequest(implicit request: Request[_], extractor: PlayRequestValuesMapExtractor): BindingAndValidationSummary[A] = {
+    val valuesMap = extractor.extractValuesMapFromRequest(request)
+    super.bindAndValidate(valuesMap)
+  }
+
+  def extractLocalized(implicit messagesRequest: MessagesRequest[_], extractor: PlayRequestValuesMapExtractor): BindingAndValidationSummary[A] = {
+    val valuesMap = extractor.extractValuesMapFromRequest(messagesRequest)
     super.bindAndValidate(valuesMap).localize((key: String) => messagesRequest.messages(key))
   }
 
