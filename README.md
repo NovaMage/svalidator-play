@@ -80,7 +80,7 @@ methods `extractFromRequest` and `extractLocalized`.  These methods will implici
 `PlayRequestValuesMapExtractor`, which you may provide to fully customize the way values are extracted from the request.
 
 Finally, the `PlayMappingBindingValidator` works the similar to the `PlayBindingValidator`, with the only
-difference being that, just like the regular `MappingBindingValidator`, it allows to to pass a `TypeTag[B]` and a
+difference being that, just like the regular `MappingBindingValidator`, it allows you to pass a `TypeTag[B]` and a
  `mapOperation: B => A` to bind the request into a specific type of object and then apply the conversion function
  to transform the bound object into something else.  It has the same four methods as `PlayBindingValidator`, so you may
  choose to perform regular binding, localized binding, or either of them with a custom extractor.
