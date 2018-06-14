@@ -6,7 +6,7 @@ description := "A small plugin for integration of the SValidator validation libr
 
 organization := "com.github.novamage"
 
-version := "0.9.14"
+version := "0.9.15"
 
 scalaVersion := "2.12.6"
 
