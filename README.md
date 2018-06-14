@@ -33,9 +33,11 @@ svalidator-play provides the classes `PlayBindingValidator` and `PlayMappingBind
 
   def bindLocalized(implicit messagesRequest: MessagesRequest[_]): BindingAndValidationSummary[A]
 
-  def extractFromRequest(implicit request: Request[_], extractor: PlayRequestValuesMapExtractor): BindingAndValidationSummary[A]
+  def extractFromRequest(implicit request: Request[_], 
+                                   extractor: PlayRequestValuesMapExtractor): BindingAndValidationSummary[A]
 
-  def extractLocalized(implicit messagesRequest: MessagesRequest[_], extractor: PlayRequestValuesMapExtractor): BindingAndValidationSummary[A]
+  def extractLocalized(implicit messagesRequest: MessagesRequest[_], 
+                                 extractor: PlayRequestValuesMapExtractor): BindingAndValidationSummary[A]
 ```
 
 The `bindFromRequest` method will take the received request and map the values in the `body` and the `queryString` into a 
