@@ -6,7 +6,7 @@ description := "A small plugin for integration of the SValidator validation libr
 
 organization := "com.github.novamage"
 
-version := "1.0.1"
+version := "2.0.0"
 
 scalaVersion := "2.12.6"
 
@@ -14,7 +14,7 @@ val playVersion = "2.6.16"
 
 libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play" % playVersion % Provided,
-  "com.github.novamage" %% "svalidator" % "1.0.1"
+  "com.github.novamage" %% "svalidator" % "2.0.0"
 )
 
 scalacOptions ++= Seq(
