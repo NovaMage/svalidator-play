@@ -12,7 +12,7 @@ Installation
 svalidator-play is available on Maven for scala 2.12.  Just add the following line to your build.sbt:
 
 ```
-libraryDependencies += "com.github.novamage" % "svalidator-play_2.12" % "2.0.0"
+libraryDependencies += "com.github.novamage" % "svalidator-play_2.12" % "2.0.1"
 ```
 
 svalidator-play transitively depends on svalidator, so it's not necessary to add both to your project.
@@ -27,19 +27,20 @@ Usage
 =====
 
 svalidator-play provides the classes `PlayBindingValidator` and `PlayMappingBindingValidator` to adapt the regular 
-`BindingValidator` and `MappingBindingValidator` functionalities with Play! framework's `Request`.  The 
-`PlayBindingValidator` provides the following four methods:
+`BindingValidator` and `MappingBindingValidator` functionalities with Play! framework's `Request`.  Additionally, you may 
+use `PlayBindingValidatorWithData` and `PlayMappingBindingValidatorWithData` if you'd like to store some type of data 
+along with the validation result.  The `PlayBindingValidator` provides the following four methods:
 
 ```scala
-  def bindFromRequest(implicit request: Request[_]): BindingAndValidationSummary[A]
+  def bindFromRequest(implicit request: Request[_]): BindingAndValidationWithData[A, Nothing]
 
-  def bindLocalized(implicit messagesRequest: MessagesRequest[_]): BindingAndValidationSummary[A]
+  def bindLocalized(implicit messagesRequest: MessagesRequest[_]): BindingAndValidationWithData[A, Nothing]
 
   def extractFromRequest(implicit request: Request[_], 
-                                   extractor: PlayRequestValuesMapExtractor): BindingAndValidationSummary[A]
+                                   extractor: PlayRequestValuesMapExtractor): BindingAndValidationWithData[A, Nothing]
 
   def extractLocalized(implicit messagesRequest: MessagesRequest[_], 
-                                 extractor: PlayRequestValuesMapExtractor): BindingAndValidationSummary[A]
+                                 extractor: PlayRequestValuesMapExtractor): BindingAndValidationWithData[A, Nothing]
 ```
 
 The `bindFromRequest` method will take the received request and map the values in the `body` and the `queryString` into a 
