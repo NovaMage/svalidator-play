@@ -12,7 +12,7 @@ Installation
 svalidator-play is available on Maven for scala 2.12.  Just add the following line to your build.sbt:
 
 ```
-libraryDependencies += "com.github.novamage" % "svalidator-play_2.12" % "2.0.1"
+libraryDependencies += "com.github.novamage" % "svalidator-play_2.12" % "2.1.0"
 ```
 
 svalidator-play transitively depends on svalidator, so it's not necessary to add both to your project.
