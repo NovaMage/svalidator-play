@@ -51,7 +51,7 @@ The `bindLocalized` will do the same as above, and in addition, will call the `l
 localization for you (this is Play's default way of localization)
 
 By default, the operation of the extracting the values from the request into the values map is performed by the
-`DefaultPlayRequestValuesMapExtractor`, which you can see here:
+`DefaultPlayRequestExtractor`, which you can see here:
 
 ```scala
 package com.github.novamage.svalidator.play.binding
