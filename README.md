@@ -58,7 +58,7 @@ package com.github.novamage.svalidator.play.binding
 
 import play.api.mvc.{AnyContentAsFormUrlEncoded, Request}
 
-object DefaultPlayRequestValuesMapExtractor extends PlayRequestValuesMapExtractor {
+object DefaultPlayRequestExtractor extends PlayRequestExtractor {
 
   override def extractValuesMapFromRequest(request: Request[_]): Map[String, Seq[String]] = {
     val queryString = request.queryString
@@ -71,6 +71,8 @@ object DefaultPlayRequestValuesMapExtractor extends PlayRequestValuesMapExtracto
       key -> (formUrlEncodedBody.getOrElse(key, Nil) ++ queryString.getOrElse(key, Nil))
     }.toMap
   }
+  
+    override def extractBindingMetadataFromRequest(request: Request[_]): Map[String, Any] = Map.empty
 
 }
 ```
