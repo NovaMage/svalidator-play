@@ -80,12 +80,9 @@ object DefaultPlayRequestExtractor extends PlayRequestExtractor {
 In short, it takes all keys from both an url encoded body and the query string, and puts all of the values in the 
 resulting values map, concatenating the lists of values for matching keys if necessary.
 
-However, if you'd like to customize the way that the values are extracted from the request, you may call instead the
-methods `extractFromRequest` and `extractLocalized`.  These methods will implicitly receive a 
-`PlayRequestValuesMapExtractor`, which you may provide to fully customize the way values are extracted from the request.
+However, if you'd like to customize the way that the values are extracted from the request, or append metadata to be passed to the binders later on, you may call instead the methods `extractFromRequest` and `extractLocalized`.  These methods will implicitly receive a `PlayRequestExtractor`, which you may provide to fully customize the way values and metadata are extracted from the request.
 
 Finally, the `PlayMappingBindingValidator` works in a similar to the `PlayBindingValidator`, with the only
 difference being that, just like the regular `MappingBindingValidator`, it allows you to pass a `TypeTag[B]` and a
  `mapOperation: B => A` to bind the request into a specific type of object and then apply the conversion function
- to transform the bound object into something else for validation.  It has the same four methods as `PlayBindingValidator`, so you may
- choose to perform regular binding, localized binding, or either of them with a custom extractor.
+ to transform the bound object into something else for validation.  It has the same four methods as `PlayBindingValidator`, so you may choose to perform regular binding, localized binding, or either of them with a custom extractor.
