@@ -11,7 +11,6 @@ abstract class PlayBindingValidatorWithData[A: ru.TypeTag, B] extends BindingVal
     extractFromRequest(request, DefaultPlayRequestExtractor)
   }
 
-
   def bindLocalized(implicit messagesRequest: MessagesRequest[_]): BindingAndValidationWithData[A, B] = {
     extractLocalized(messagesRequest, DefaultPlayRequestExtractor)
   }
