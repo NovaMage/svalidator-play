@@ -8,7 +8,7 @@ import play.mvc.Http.Status
 
 import scala.concurrent.ExecutionContext
 
-class VersatileContentBodyParser(parsers: PlayBodyParsers)(implicit context: ExecutionContext) extends BodyParser[SValidatorContent] {
+class SValidatorContentBodyParser(parsers: PlayBodyParsers)(implicit context: ExecutionContext) extends BodyParser[SValidatorContent] {
 
   override def apply(requestHeader: RequestHeader): Accumulator[ByteString, Either[Result, SValidatorContent]] = {
     if (requestHeader.contentType.contains("text/json") || requestHeader.contentType.contains("application/json")) {
