@@ -10,6 +10,9 @@ scalaVersion := "2.12.7"
 
 val playVersion = "2.6.20"
 
+resolvers +=
+  "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
+
 libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play" % playVersion % Provided,
   "com.github.novamage" %% "svalidator" % "3.0.0-SNAPSHOT"
